@@ -56,9 +56,32 @@ function createUser($userData) {
     $conn->close();
 }
 
-function showNotes($tableName){
+function arrayToString($data) {
+    $dataString = "";
+    foreach ($data as $key => $value) {
+        $dataString .= $value['content'] . "<br>";
+    }
+    return $dataString;
+}
+
+function showList($tableName, $enum){
     $conn = connectToDatabase();
 
     $username = $_SESSION['username'];
-    $sql = "SELECT";
+    $sql = "SELECT {$tableName}.content FROM {$tableName}
+		        INNER JOIN users ON {$tableName}.user_id = users.id   
+                AND users.user_name = '{$username}'
+            WHERE {$tableName}.state = '{$enum}';";
+
+    $data = selectFromDatabase($sql);
+    if (empty($data)) {
+        $dataString = "Empty";
+        $conn->close();
+        return $dataString;
+    }
+
+    $dataString = arrayToString($data);
+    
+    $conn->close();
+    return $dataString;
 }

@@ -10,8 +10,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="categories"></div>
-    <div class="list"></div>
+    <div class="done">
+        <h1>Completed Tasks</h1>
+        <?php 
+            // showNotes('done');
+        ?>
+    </div>
+    <div class="active"></div>
     <div class="notes"></div>
 </body>
 </html>

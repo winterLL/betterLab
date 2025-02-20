@@ -55,3 +55,10 @@ function createUser($userData) {
 
     $conn->close();
 }
+
+function showNotes($tableName){
+    $conn = connectToDatabase();
+
+    $username = $_SESSION['username'];
+    $sql = "SELECT";
+}

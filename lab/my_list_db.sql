@@ -24,7 +24,7 @@ CREATE TABLE list(
     user_id INT NOT NULL,
     list_content TEXT NOT NULL,
     state ENUM('active', 'done') NOT NULL DEFAULT 'active',
-    priority ENUM('important', 'normal') NOT NULL,
+    priority ENUM('important', 'normal') NOT NULL DEFAULT 'normal',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
     FOREIGN KEY (user_id) REFERENCES users(id)

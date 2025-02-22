@@ -30,6 +30,7 @@ if (isPostRequest()){
             redirectTo('../pages/registerPage.php');
         }else {
             createUser($userData);
+            redirectTo('../index.php');
         }
         
     }else {

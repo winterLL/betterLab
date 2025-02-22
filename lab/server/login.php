@@ -20,7 +20,7 @@ if (isPostRequest()) {
         if (!empty($userDetails)) {
             if ($userDetails[0]['password'] === $password) {
                 $_SESSION['username'] = $username;
-                redirectTo('../pages/profile.php');
+                redirectTo('../pages/profilePage.php');
             }else {
                 $_SESSION['error_message'] = 'Wrong password';
                 redirectTo('../index.php');

@@ -27,18 +27,18 @@ if (isPostRequest()){
     if (empty($data)) {
         if ($userData['password'] !== $userData['password2']) {
             $_SESSION['error_message'] = 'Passwords do not match';
-            redirectTo('../pages/register.php');
+            redirectTo('../pages/registerPage.php');
         }else {
             createUser($userData);
         }
         
     }else {
         $_SESSION['error_message'] = 'Username already exists';
-        redirectTo('../pages/register.php');
+        redirectTo('../pages/registerPage.php');
     }
 }else {
     setError('this is not a post request');
-    redirectTo('../pages/register.php');
+    redirectTo('../pages/registerPage.php');
 }
 
 

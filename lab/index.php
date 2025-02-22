@@ -26,7 +26,7 @@
                 unset($_SESSION["error_message"])?></p>
             <?php endif; ?>
             <hr>
-            <p>Don't have an accound? <a href="pages/register.php">Register!</a></p>
+            <p>Don't have an accound? <a href="pages/registerPage.php">Register!</a></p>
         </div>
         <div class="con_chld b">
             <div class="logo"></div>

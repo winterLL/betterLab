@@ -23,7 +23,11 @@
 
         <!-- <button class="add">+</button> -->
 
-        <p class="done"><?php echo showList("list", "done") ?></p>
+        <p class="done">
+            <ul>
+                <?php showList("list", "done") ?>
+            </ul>
+        </p>
     </div>
 
     <!-- task pou den exoun oloklirothei -->
@@ -42,7 +46,11 @@
             </div>
         </div>
 
-        <p class="done"><?php echo showList("list", "active") ?></p>
+        <p class="active">
+            <ol>
+                <?php showList("list", "active") ?>
+            </ol>
+        </p>
     </div>
 
     <!-- notes -->
@@ -61,7 +69,9 @@
             </div>
         </div>
 
-        <p class="done"><?php echo showList("notes", "note") ?></p>
+        <p class="notes">
+            <?php showList("notes", "note") ?>
+        </p>
     </div>
 
     <script src="../js/functions.js" defer></script>

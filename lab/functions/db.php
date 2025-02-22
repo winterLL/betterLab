@@ -56,13 +56,25 @@ function createUser($userData) {
     $conn->close();
 }
 
-function arrayToString($data) {
-    $dataString = "";
-    foreach ($data as $key => $value) {
-        $dataString .= $value['content'] . "<br>";
+function insertIntoDatabase($sql) {
+    $conn = connectToDatabase();
+
+    if ($conn->query($sql) === TRUE) {
+        redirectTo('../pages/profilePage.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    return $dataString;
+
+    $conn->close();
 }
+
+// function arrayToString($data) {
+//     $dataString = "";
+//     foreach ($data as $key => $value) {
+//         $dataString .= $value['content'] . "<br>";
+//     }
+//     return $dataString;
+// }
 
 function showList($tableName, $enum){
     $conn = connectToDatabase();
@@ -80,8 +92,16 @@ function showList($tableName, $enum){
         return $dataString;
     }
 
-    $dataString = arrayToString($data);
+    // $dataString = arrayToString($data);
     
+    foreach($data as $content){
+        foreach($content as $key => $value){
+            echo "<li>" . $value . "</li>";
+        }
+    }
+
     $conn->close();
-    return $dataString;
+    // return $dataString;
 }
+
+

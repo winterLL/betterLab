@@ -40,17 +40,20 @@
             <div class="popup-content">
                 <span class="close" onclick="closePopup('taskPopup')">&times;</span>
                 <form action="../server/profileServer.php" method="post">
-                    <input type="text" name="newTask" id="newTask" placeholder="Add a task">
+                    <textarea type="text" name="newTask" id="newTask" placeholder="Add a task"></textarea>
                     <button class="submit-button" type="submit">Add Task</button>
                 </form>
             </div>
         </div>
 
-        <p class="active">
-            <ol>
-                <?php showList("list", "active") ?>
-            </ol>
-        </p>
+        <form action="../server/updateTask.php" method="post">
+            <p class="active">
+                <ol>
+                    <?php showCheckList("list", "active") ?>
+                </ol>
+            </p><br>
+            <button type="submit" class="submit-button">Done</button>
+        </form>
     </div>
 
     <!-- notes -->
@@ -63,7 +66,7 @@
             <div class="popup-content">
                 <span class="close" onclick="closePopup('notePopup')">&times;</span>
                 <form action="../server/profileServer.php" method="post">
-                    <input type="text" name="newNote" id="NewNote"  placeholder="Add a note">
+                    <textarea type="text" name="newNote" id="NewNote"  placeholder="Add a note"></textarea>
                     <button class="submit-button" type="submit">Add Note</button>
                 </form>
             </div>

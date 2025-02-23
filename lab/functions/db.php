@@ -104,4 +104,38 @@ function showList($tableName, $enum){
     // return $dataString;
 }
 
+function showCheckList($tableName, $enum){
+    $conn = connectToDatabase();
 
+    $username = $_SESSION['username'];
+    $sql = "SELECT {$tableName}.content FROM {$tableName}
+		        INNER JOIN users ON {$tableName}.user_id = users.id   
+                AND users.user_name = '{$username}'
+            WHERE {$tableName}.state = '{$enum}';";
+
+    $data = selectFromDatabase($sql);
+    $data= array_column($data, 'content');
+
+    $sql = "SELECT {$tableName}.id FROM {$tableName}
+		        INNER JOIN users ON {$tableName}.user_id = users.id   
+                AND users.user_name = '{$username}'
+            WHERE {$tableName}.state = '{$enum}';";
+
+    $dataID = selectFromDatabase($sql);
+    $dataID = array_column($dataID, 'id');    
+
+    $associativeData = array_combine($dataID, $data);
+
+    
+    if (empty($data)) {
+        $dataString = "Empty";
+        $conn->close();
+        return $dataString;
+    }
+
+    foreach($associativeData as $id => $content){
+        echo "<input type='checkbox' class='task-checkbox' data-id='{$id}' name='{$id}' value='{$content}'>{$content} <input type='checkbox' class='importand-checkbox'> <br>";
+    }
+
+    $conn->close();
+}

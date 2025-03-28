@@ -6,7 +6,7 @@ function connectToDatabase() {
     $servername = "localhost";
     $username   = "root";
     $password   = "";
-    $dbname     = "lab_test_db";
+    $dbname     = "my_list_db";
     
     $conn = new mysqli($servername, $username, $password, $dbname);
     
